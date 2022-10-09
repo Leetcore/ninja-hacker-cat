@@ -1,4 +1,4 @@
-# Hacker-Cat Sidebar für Firefox
+# Ninja-Hacker-Cat Sidebar für Firefox
 This firefox extension can check your visited websites for the most basic 
 security issues and data leaks. It's an easy way to test the security of 
 your websites!
@@ -29,20 +29,21 @@ docker run --rm -p 8080:80 adamdoupe/wackopicko
 Try: http://localhost:8080/ afterwards.
 
 ## TODO
-* [_] Test fuzzing form data!
-* [_] Add response size check to rules
-* [_] Add fuzzing for get params
-* [_] Wrapper for fetch requests to count
+* [ ] Test fuzzing form data!
+* [ ] Add response size check to rules
+* [ ] Add fuzzing for get params
+* [ ] Wrapper for fetch requests to count
 * [X] Add securityinfo.txt
 * [X] Version detection
 * [X] Check for leaky urls in current tab
 
 ## Detections:
-* [_] SQL Injection based on Header/Cookies
-* [_] IDOR based on GET-Param
-* [_] Path traversal
-* [_] PHP Version
-* [_] Wordpress Version
+* [ ] Wordpress Version
+* [ ] PHP Version
+* [ ] SQL Injection based on Header/Cookies
+* [ ] IDOR based on GET-Param
+* [ ] Path traversal
+* [ ] OS Command Injection (https://portswigger.net/support/using-burp-to-test-for-os-command-injection-vulnerabilities)
 * [X] XSS Tests in GET-Param (tested)
 * [X] SQL Injection based on GET-Param (tested)
 * [X] SQL Injection Login bypass (JSON, tested)
