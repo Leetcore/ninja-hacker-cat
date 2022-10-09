@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="panel.css" />
+</head>
+
+<body>
+  <div id="main">
+    <audio src="sounds/miau1.mp3" id="sound"></audio>
+    <img class="avatar" id="cat-default" src="images/cat-default.svg">
+    <img class="avatar" id="cat-panic" src="images/cat-panic.svg">
+    <img class="avatar" id="cat-laugh" src="images/cat-laugh.svg">
+    <img class="avatar" id="cat-love" src="images/cat-love.svg">
+    <img class="avatar" id="cat-angry" src="images/cat-angry.svg">
+    <img class="avatar" id="skull" src="images/skull.svg">
+
+    <div class="stats" id="stats"></div>
+
+    <label for="autoRequest">
+      <input type="checkbox" checked="checked" id="autoRequest">
+      Check automatically
+    </label>
+
+    <div id="messageBox"></div>
+    <a href="#" id="reset"><img width="20" height="20" src="trash.svg"> Remove all alerts</a>
+  </div>
+  <script src="scripts/main.js" type="module"></script>
+</body>
+
+</html>
