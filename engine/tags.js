@@ -5,9 +5,10 @@ export async function tags(request_url) {
 	let allDetectedTags = []
 	let response = await fetch(request_url)
 	let body = await response.text()
+	body = body.toLocaleLowerCase()
 
 	// detect wordpress
-	if (body.toLowerCase().includes("/wp-content/")) {
+	if (body.includes("/wp-content/")) {
 		allDetectedTags.push("wordpress")
 	}
 
@@ -21,18 +22,24 @@ export async function tags(request_url) {
 		allDetectedTags.push("get-param")
 	}
 
+	// detect POST param in url
+	if (body.includes("<form")
+		|| body.includes("<input")) {
+		allDetectedTags.push("post-param")
+	}
+
 	// root path with no get params
 	if (!request_url.includes("?") && !request_url.includes(".")) {
 		allDetectedTags.push("root")
 	}
 
 	// detect confluence
-	if (body.toLowerCase().includes("confluence-base-url")) {
+	if (body.includes("confluence-base-url")) {
 		allDetectedTags.push("confluence")
 	}
 
 	// detect bitbucket
-	if (body.toLowerCase().includes("bitbucket")) {
+	if (body.includes("bitbucket")) {
 		allDetectedTags.push("bitbucket")
 	}
 
@@ -44,7 +51,7 @@ export async function tags(request_url) {
 
 	// weblogic
 	if (response.url.indexOf("/console/login/") >= 0
-		&& body.toLowerCase().includes("weblogic")) {
+		&& body.includes("weblogic")) {
 		allDetectedTags.push("weblogic")
 	}
 

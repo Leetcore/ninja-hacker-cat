@@ -70,7 +70,7 @@ Try: http://localhost:8080/ afterwards.
 * [X] Confluence RCE (PoC, tested)
 * [X] Exchange Proxyshell (PoC, untested)
 * [X] Apache (version only, untested)
-* [X] Weblogic Console (PoC)
+* [X] Weblogic Console (PoC, tested)
 
 # CVEs:
 The CVEs this browser extension can detect:

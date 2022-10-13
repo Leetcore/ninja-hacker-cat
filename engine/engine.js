@@ -32,8 +32,9 @@ export async function engine(rules, detectedTags, url) {
 				let result = await request(
 					request_url,
 					null,
-					"GET",
-					null
+					rule.method,
+					rule.postBody,
+					rule.postJSON
 				)
 
 				// detection based on server answer
@@ -50,9 +51,10 @@ export async function engine(rules, detectedTags, url) {
 				// run request
 				let result = await request(
 					request_url,
-					null,
-					"GET",
-					null
+					rule.headers,
+					rule.method,
+					rule.postBody,
+					rule.postJSON
 				)
 
 				// detection based on server answer
@@ -79,9 +81,10 @@ export async function engine(rules, detectedTags, url) {
 				// run request
 				let result = await request(
 					request_url,
-					null,
-					"GET",
-					null
+					rule.headers,
+					rule.method,
+					rule.postBody,
+					rule.postJSON
 				)
 
 				detection(request_url, rule, result.response, result.body, rule_param)
@@ -104,6 +107,7 @@ export async function engine(rules, detectedTags, url) {
 						request_url,
 						null,
 						"HEAD",
+						null,
 						null
 					)
 
@@ -119,9 +123,10 @@ export async function engine(rules, detectedTags, url) {
 			// run request
 			let result = await request(
 				request_url,
-				null,
-				"GET",
-				null
+				rule.headers,
+				rule.method,
+				rule.postBody,
+				rule.postJSON
 			)
 
 			detection(request_url, rule, result.response, result.body, rule.detectedBy)
