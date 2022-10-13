@@ -51,6 +51,19 @@ class Message {
 				document.querySelector(`#${this.avatar}`).style.display = 'block'
 			}
 		}
+
+		if (this.critLevel > 0) {
+			browser.notifications.create(
+				{
+					type: 'basic',
+					title: 'Miau!',
+					iconUrl: browser.extension.getURL(`images/${this.avatar}.svg`),
+					message: `${this.title} (${this.detectedBy})`,
+				}
+			)
+		}
+
+		document.querySelector('#reset').classList.remove('hidden')
 	}
 }
 
@@ -119,7 +132,7 @@ export function detection(request_url, rule, response, body = "", detectedBy = "
 			}
 		}
 	}
-	
+
 	if (status_matched && !status_filtered) {
 		// check if redirect is a must have
 		if (rule.isRedirected && !response.redirected) {

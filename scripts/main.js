@@ -11,6 +11,31 @@ import { fuzzing_engine } from "../engine/fuzzing.js"
 let myWindowId;
 const check_automatically = document.querySelector("#autoRequest")
 
+// toggle toolbar icons
+document.querySelector("#autoRequest")
+	.addEventListener("click", () => {
+		console.log(check_automatically)
+		if (check_automatically.checked) {
+			browser.browserAction.setIcon(
+				{
+					path: {
+						16: "/images/cat-love.svg",
+						32: "/images/cat-love.svg"
+					}
+				}
+			)
+		} else {
+			browser.browserAction.setIcon(
+				{
+					path: {
+						16: "/images/cat-default.svg",
+						32: "/images/cat-default.svg"
+					}
+				}
+			)
+		}
+	})
+
 // global stuff
 window.nhc_requestCounter = 0
 window.nhc_currentCritLevel = 0
@@ -135,5 +160,6 @@ document.querySelector('#reset').addEventListener('click', () => {
 	document.querySelector('#cat-default').style.display = 'block'
 	window.nhc_currentCritLevel = 0
 	window.nhc_visitedURLs = []
-	document.querySelector("#messageBox").innerHTML = ""
+	document.querySelector('#messageBox').innerHTML = ''
+	document.querySelector('#reset').classList.add('hidden')
 })

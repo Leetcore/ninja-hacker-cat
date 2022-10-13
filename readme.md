@@ -70,7 +70,7 @@ Try: http://localhost:8080/ afterwards.
 * [X] Confluence RCE (PoC, tested)
 * [X] Exchange Proxyshell (PoC, untested)
 * [X] Apache (version only, untested)
-* [X] Weblogic Console (PoC, untested)
+* [X] Weblogic Console (PoC)
 
 # CVEs:
 The CVEs this browser extension can detect:
@@ -84,6 +84,11 @@ zip -r Ninja-Hacker-Cat.zip . -x ".*" -x "images/.*"
 ```
 
 Upload: https://addons.mozilla.org/en-US/developers/addons
+
+# Release notes
+Version: 1.2
+* Fixing the root urls if a port is specified -> Tested RCE: Weblogic Console (CVE-2020-14882)
+* Changing the interface from panel in background to icon and full background page
 
 # Copyright
 GNU GENERAL PUBLIC LICENSE Version 2

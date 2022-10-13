@@ -18,7 +18,27 @@ a:visited {
 }
 
 #main {
-	padding: 0 5px;
+	position: relative;
+	margin: 20px 50px;
+}
+
+#sidebar {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 200px;
+}
+
+#content {
+	position: absolute;
+	top: 0px;
+	left: 250px;
+	max-width: 500px;
+	min-width: 100px;
+}
+
+.avatar {
+	max-width: 250px;
 }
 
 .small {
@@ -72,6 +92,10 @@ a:visited {
 }
 
 .avatar {
+	display: none;
+}
+
+.hidden {
 	display: none;
 }
 

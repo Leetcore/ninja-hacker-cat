@@ -4,7 +4,7 @@ import { request, countRequests } from "./helper.js"
 // this engine will make requests based on the current url
 export async function engine(rules, detectedTags, url) {
 	let parsed_url = new URL(url)
-	let root_url = parsed_url.protocol + "//" + parsed_url.hostname
+	let root_url = parsed_url.protocol + "//" + parsed_url.hostname + ":" + parsed_url.port
 
 	for (let rule of rules) {
 		// filter checks with tags
@@ -128,7 +128,6 @@ export async function engine(rules, detectedTags, url) {
 		}
 	}
 }
-
 
 function checkIfRuleTagMatches(tags, detectedTags) {
 	return tags.find(tag => {
