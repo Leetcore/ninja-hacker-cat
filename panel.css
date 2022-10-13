@@ -21,6 +21,10 @@ a:visited {
 	padding: 0 5px;
 }
 
+.small {
+	font-size: 70%;
+}
+
 .reset {
 	border: none;
 	background-color: rgb(232, 158, 61);

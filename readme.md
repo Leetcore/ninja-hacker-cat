@@ -1,21 +1,36 @@
 # Ninja-Hacker-Cat Sidebar für Firefox
-This firefox extension can check your visited websites for the most basic 
-security issues and data leaks. It's an easy way to test the security of 
+This firefox extension can check your website for the most basic 
+security issues and data leaks. It's an easy way to test the basic security of 
 your websites!
 
 ## Installation
-Install the extension in firefox.
+Install the extension in firefox:
+<a href="https://addons.mozilla.org/de/firefox/addon/ninja-hacker-cat/">Firefox Add-Ons</a>
+
+Temporary installation:
+* Settings
+* Debug extension
+* New extension -> Open `manifest.json`
+
+# Rule filter
+`engine/detection.js`: Try to understand the current web service and trigger 
+the rules that match these application "tags".
 
 ## Rules
-`leak-urls.js`: Contains filenames that maybe interessting.
+`rules/leak-urls.js`: Contains filenames that maybe interessting -> WP-Backups, 
+GIT-Leaks.
 
-`poc.js`: Contains proof of concepts for critical security issues.
+`rules/poc.js`: Contains proof of concepts for critical security issues -> 
+Confluence RCE.
 
-`versions.js`: Contains rules for version grabbing and detecting vulnerable versions.
+`rules/versions.js`: Contains rules for version grabbing and detecting 
+vulnerable versions -> Exchange RCE.
 
-`web.js`: Contains rules for web vulnerabilities based on URL.
+`rules/web.js`: Contains rules for web vulnerabilities based on URL. -> SQLi,
+Keywords.
 
-`fuzzing.js`: Contains rules for fuzzing GET and POST params based on current WebRequest.
+`rules/fuzzing.js`: Contains rules for fuzzing GET and POST params based on 
+current WebRequest. -> XSS, SQLi.
 
 ## How to test these features
 You can test some features against wackopicko, juice shop.
@@ -29,10 +44,12 @@ docker run --rm -p 8080:80 adamdoupe/wackopicko
 Try: http://localhost:8080/ afterwards.
 
 ## TODO
-* [ ] Test fuzzing form data!
+* [ ] Refactoring fuzzing (only change one param per request)!
 * [ ] Add response size check to rules
 * [ ] Add fuzzing for get params
-* [ ] Wrapper for fetch requests to count
+* [ ] Add fuzzing param filter
+* [X] Wrapper for fetch requests to count
+* [X] Test fuzzing form data!
 * [X] Add securityinfo.txt
 * [X] Version detection
 * [X] Check for leaky urls in current tab
@@ -44,6 +61,8 @@ Try: http://localhost:8080/ afterwards.
 * [ ] IDOR based on GET-Param
 * [ ] Path traversal
 * [ ] OS Command Injection (https://portswigger.net/support/using-burp-to-test-for-os-command-injection-vulnerabilities)
+* [ ] Big-IP RCE (https://github.com/horizon3ai/CVE-2022-1388/blob/main/CVE-2022-1388.py)
+* [ ] ManageEngine ADSelfService (https://www.synacktiv.com/publications/how-to-exploit-cve-2021-40539-on-manageengine-adselfservice-plus.html)
 * [X] XSS Tests in GET-Param (tested)
 * [X] SQL Injection based on GET-Param (tested)
 * [X] SQL Injection Login bypass (JSON, tested)
@@ -65,7 +84,6 @@ zip -r Ninja-Hacker-Cat.zip . -x ".*" -x "images/.*"
 ```
 
 Upload: https://addons.mozilla.org/en-US/developers/addons
-
 
 # Copyright
 GNU GENERAL PUBLIC LICENSE Version 2
