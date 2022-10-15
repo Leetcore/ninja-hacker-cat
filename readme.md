@@ -86,11 +86,12 @@ Upload: https://addons.mozilla.org/en-US/developers/addons
 
 # Release notes
 Version: 1.2
+* License changed to Mozilla Public License 2.0 because its not allowed to use logo / visuals
 * Fixing the root urls if a port is specified -> Tested RCE: Weblogic Console (CVE-2020-14882)
 * Changing the interface from panel in background to icon and full background page
 
 # Copyright
-GNU GENERAL PUBLIC LICENSE Version 2
+Mozilla Public License 2.0
 
 Copyright 1337core, 2022
 

@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Ninja-Hacker-Cat",
-	"description": "Ninja-Hacker-Cat makes web security checks for you!",
+	"description": "Ninja Hacker Cat makes web security checks for you!",
 	"version": "1.2",
 	"browser_specific_settings": {
 		"gecko": {
