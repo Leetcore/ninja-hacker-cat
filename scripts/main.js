@@ -16,23 +16,19 @@ document.querySelector("#autoRequest")
 	.addEventListener("click", () => {
 		console.log(check_automatically)
 		if (check_automatically.checked) {
-			browser.browserAction.setIcon(
-				{
-					path: {
-						16: "/images/cat-love.svg",
-						32: "/images/cat-love.svg"
-					}
+			browser.browserAction.setIcon({
+				path: {
+					16: "/images/cat-default.svg",
+					32: "/images/cat-default.svg"
 				}
-			)
+			})
 		} else {
-			browser.browserAction.setIcon(
-				{
-					path: {
-						16: "/images/cat-default.svg",
-						32: "/images/cat-default.svg"
-					}
+			browser.browserAction.setIcon({
+				path: {
+					16: "/images/cat-default-grey.svg",
+					32: "/images/cat-default-grey.svg"
 				}
-			)
+			})
 		}
 	})
 

@@ -9,7 +9,7 @@
 		}
 	},
 	"browser_action": {
-		"default_icon": "/images/cat-default.svg",
+		"default_icon": "/images/cat-default-grey.svg",
 		"default_title": "Miau!"
 	},
 	"background": {

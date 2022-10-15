@@ -17,6 +17,12 @@ function nhc_toggleNinjaHackerCat() {
                         active: true
                     }
                 )
+                browser.browserAction.setIcon({
+                    path: {
+                        16: "/images/cat-default.svg",
+                        32: "/images/cat-default.svg"
+                    }
+                })
             }
         })
 }
