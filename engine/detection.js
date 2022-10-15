@@ -57,7 +57,6 @@ class Message {
 				{
 					type: 'basic',
 					title: 'Miau!',
-					iconUrl: browser.extension.getURL(`images/${this.avatar}.svg`),
 					message: `${this.title} (${this.detectedBy})`,
 				}
 			)
