@@ -12,11 +12,21 @@ Temporary installation:
 * Debug extension
 * New extension -> Open `manifest.json`
 
-# Rule filter
+## How to test these features
+You can test some features against wackopicko, juice shop.
+CVEs can be tested against vulhub e.g. <a href="https://github.com/vulhub/vulhub/tree/master/confluence/CVE-2022-26134">confluence</a>.
+
+``` bash
+docker run --rm -p 8080:3000 bkimminich/juice-shop
+docker run --rm -p 8080:80 adamdoupe/wackopicko
+```
+
+Try: http://localhost:8080/ afterwards.
+
+# Rules
 `engine/detection.js`: Try to understand the current web service and trigger 
 the rules that match these application "tags".
 
-## Rules
 `rules/leak-urls.js`: Contains filenames that maybe interessting -> WP-Backups, 
 GIT-Leaks.
 
@@ -32,17 +42,6 @@ Keywords.
 `rules/fuzzing.js`: Contains rules for fuzzing GET and POST params based on 
 current WebRequest. -> XSS, SQLi.
 
-## How to test these features
-You can test some features against wackopicko, juice shop.
-CVEs can be tested against vulhub e.g. <a href="https://github.com/vulhub/vulhub/tree/master/confluence/CVE-2022-26134">confluence</a>.
-
-``` bash
-docker run --rm -p 8080:3000 bkimminich/juice-shop
-docker run --rm -p 8080:80 adamdoupe/wackopicko
-```
-
-Try: http://localhost:8080/ afterwards.
-
 ## TODO
 * [ ] Refactoring fuzzing (only change one param per request)!
 * [ ] Add response size check to rules
@@ -54,7 +53,7 @@ Try: http://localhost:8080/ afterwards.
 * [X] Version detection
 * [X] Check for leaky urls in current tab
 
-## Detections:
+## Detections
 * [ ] Wordpress Version
 * [ ] PHP Version
 * [ ] SQL Injection based on Header/Cookies
@@ -72,7 +71,7 @@ Try: http://localhost:8080/ afterwards.
 * [X] Apache (version only, untested)
 * [X] Weblogic Console (PoC, tested)
 
-# CVEs:
+# CVEs
 The CVEs this browser extension can detect:
 Confluence Server (CVE-2022-26134), Bitbucket Server (CVE-2022-36804), 
 Exchange Server Proxyshell (CVE-2021-34473), Apache (CVE-2021-41773),
