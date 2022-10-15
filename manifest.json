@@ -3,11 +3,6 @@
 	"name": "Ninja-Hacker-Cat",
 	"description": "Ninja Hacker Cat makes web security checks for you!",
 	"version": "1.2",
-	"browser_specific_settings": {
-		"gecko": {
-			"strict_min_version": "100"
-		}
-	},
 	"browser_action": {
 		"default_icon": "/images/cat-default-grey.svg",
 		"default_title": "Miau!"
