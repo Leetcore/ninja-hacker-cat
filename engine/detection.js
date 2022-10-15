@@ -96,7 +96,6 @@ export function detection(request_url, rule, response, body = "", detectedBy = "
 			let regex = new RegExp(rule.regexVersion)
 			let detectMatch = null
 			if (rule.matchRegexHeaderName) {
-				console.log(response.headers.get(rule.matchRegexHeaderName), regex)
 				let header = response.headers.get(rule.matchRegexHeaderName)
 				detectMatch = header.match(regex)
 			} else {

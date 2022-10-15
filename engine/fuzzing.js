@@ -8,7 +8,6 @@ export async function fuzzing_engine(rules, requestDetails) {
 		if (rule.filterPostParams) {
 			let filterThisParam = true
 			for (let filterPostParam of (rule.filterPostParams || [])) {
-				console.log(filterPostParam)
 				if (requestDetails?.requestBody?.formData[filterPostParam]) {
 					filterThisParam = false
 					break
