@@ -7,9 +7,15 @@ export const fuzzing = [
             "'-- ",
             "' or 'a'='a'-- "
         ],
+        filterPostParams: [
+            "username",
+            "user",
+            "login",
+            "password",
+            "pass"
+        ],
         isRedirected: true,
         detectStatusCodes: ["200"],
-        tags: ["all"],
         cat: "cat-angry",
         critLevel: 3
     },
@@ -22,10 +28,16 @@ export const fuzzing = [
             "testing",
             "guest"
         ],
+        filterPostParams: [
+            "username",
+            "user",
+            "login",
+            "password",
+            "pass"
+        ],
         isRedirected: true,
         replaceParamValue: true,
         detectStatusCodes: ["200"],
-        tags: ["get-param"],
         cat: "cat-laugh",
         critLevel: 1
     }

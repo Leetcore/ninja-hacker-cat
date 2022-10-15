@@ -1,36 +1,24 @@
 {
 	"manifest_version": 2,
 	"name": "Ninja-Hacker-Cat",
-	"description": "Ninja-Hacker-Cat makes web security checks for you!",
-	"version": "1.0",
+	"description": "Ninja Hacker Cat makes web security checks for you!",
+	"version": "1.2",
 	"browser_specific_settings": {
 		"gecko": {
 			"strict_min_version": "54.0a1"
 		}
 	},
-	"sidebar_action": {
-		"default_icon": "star.png",
-		"default_title": "Ninja-Hacker-Cat",
-		"default_panel": "panel.html"
+	"browser_action": {
+		"default_icon": "/images/cat-default-grey.svg",
+		"default_title": "Miau!"
+	},
+	"background": {
+		"scripts": ["/scripts/background.js"]
 	},
 	"permissions": [
+		"notifications",
 		"webRequest",
 		"webRequestBlocking",
 		"<all_urls>"
-	],
-	"content_scripts": [
-		{
-			"matches": [
-				"http://*/*",
-				"https://*/*"
-			]
-		}
-	],
-	"commands": {
-		"_execute_sidebar_action": {
-			"suggested_key": {
-				"default": "Ctrl+Shift+Y"
-			}
-		}
-	}
+	]
 }
