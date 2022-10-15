@@ -82,8 +82,6 @@ Weblogic Console (CVE-2020-14882).
 zip -r Ninja-Hacker-Cat.zip . -x ".*" -x "images/.*"
 ```
 
-Upload: https://addons.mozilla.org/en-US/developers/addons
-
 # Release notes
 Version: 1.2
 * License changed to Mozilla Public License 2.0 because its not allowed to use logo / visuals

@@ -16,7 +16,6 @@ export const fuzzing = [
         ],
         isRedirected: true,
         detectStatusCodes: ["200"],
-        tags: ["post-param"],
         cat: "cat-angry",
         critLevel: 3
     },
@@ -39,7 +38,6 @@ export const fuzzing = [
         isRedirected: true,
         replaceParamValue: true,
         detectStatusCodes: ["200"],
-        tags: ["post-param"],
         cat: "cat-laugh",
         critLevel: 1
     }

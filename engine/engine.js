@@ -4,7 +4,10 @@ import { request, countRequests } from "./helper.js"
 // this engine will make requests based on the current url
 export async function engine(rules, detectedTags, url) {
 	let parsed_url = new URL(url)
-	let root_url = parsed_url.protocol + "//" + parsed_url.hostname + ":" + parsed_url.port
+	let rootUrl = parsed_url.protocol + "//" + parsed_url.hostname
+	if (url.includes(":")) {
+		rootUrl = parsed_url.protocol + "//" + parsed_url.hostname + ":" + parsed_url.port
+	}
 
 	for (let rule of rules) {
 		// filter checks with tags
@@ -42,7 +45,7 @@ export async function engine(rules, detectedTags, url) {
 			}
 		} else if (rule.rootPaths) {
 			for (let rootPath of rule.rootPaths) {
-				let request_url = root_url + rootPath
+				let request_url = rootUrl + rootPath
 
 				if (window.nhc_alreadyVisited(request_url)) {
 					continue
