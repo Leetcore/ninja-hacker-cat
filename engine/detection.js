@@ -87,6 +87,7 @@ export function detection(request_url, rule, response, body = "", detectedBy = "
 					rule.cat,
 					rule.critLevel
 				)
+				break
 			}
 		}
 
@@ -127,6 +128,7 @@ export function detection(request_url, rule, response, body = "", detectedBy = "
 					rule.cat,
 					rule.critLevel
 				)
+				break
 			}
 		}
 	}
@@ -148,6 +150,7 @@ export function detection(request_url, rule, response, body = "", detectedBy = "
 					rule.cat,
 					rule.critLevel
 				)
+				break
 			}
 		}
 	}

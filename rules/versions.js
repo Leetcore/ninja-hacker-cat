@@ -44,7 +44,7 @@ export const versions = [
         regexVersion: "auth\/([\\d\\.]+)\/themes",
         tags: ["exchange", "owa"],
         detectedBy: "css-font-path",
-        cat: "cat-angry",
+        cat: "cat-panic",
         critLevel: 2
     }, {
         title: "RCE (authenticated): Exchange 2016 (CVE-2022-41040 and CVE-2022-41082)",
@@ -53,7 +53,7 @@ export const versions = [
         regexVersion: "auth\/([\\d\\.]+)\/themes",
         tags: ["exchange", "owa"],
         detectedBy: "css-font-path",
-        cat: "cat-angry",
+        cat: "cat-panic",
         critLevel: 2
     }, {
         title: "RCE (authenticated): Exchange 2013 (CVE-2022-41040 and CVE-2022-41082)",
@@ -62,7 +62,7 @@ export const versions = [
         regexVersion: "auth\/([\\d\\.]+)\/themes",
         tags: ["exchange", "owa"],
         detectedBy: "css-font-path",
-        cat: "cat-angry",
+        cat: "cat-panic",
         critLevel: 2
     }, {
         title: "Exchange 2010 (oudated)",
@@ -71,7 +71,7 @@ export const versions = [
         regexVersion: "auth\/([\\d\\.]+)\/themes",
         tags: ["exchange", "owa"],
         detectedBy: "css-font-path",
-        cat: "cat-angry",
+        cat: "cat-panic",
         critLevel: 2
     }, {
         title: "RCE: Exchange 2019 Proxyshell (CVE-2021-34473)",
@@ -80,7 +80,7 @@ export const versions = [
         regexVersion: "auth\/([\\d\\.]+)\/themes",
         tags: ["exchange", "owa"],
         detectedBy: "css-font-path",
-        cat: "cat-angry",
+        cat: "cat-panic",
         critLevel: 3
     }, {
         title: "RCE: Exchange 2016 Proxyshell (CVE-2021-34473)",
@@ -89,7 +89,7 @@ export const versions = [
         regexVersion: "auth\/([\\d\\.]+)\/themes",
         tags: ["exchange", "owa"],
         detectedBy: "css-font-path",
-        cat: "cat-angry",
+        cat: "cat-panic",
         critLevel: 3
     }, {
         title: "RCE: Exchange 2016 Proxyshell (CVE-2021-34473)",
@@ -98,6 +98,6 @@ export const versions = [
         regexVersion: "auth\/([\\d\\.]+)\/themes",
         tags: ["exchange", "owa"],
         detectedBy: "css-font-path",
-        cat: "cat-angry",
+        cat: "cat-panic",
         critLevel: 3
     }]

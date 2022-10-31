@@ -21,7 +21,7 @@ export const leakUrls = [
 		filterStatusCodes: ["200"],
 		tags: ["root"],
 		cat: "cat-laugh",
-		critLevel: 1
+		critLevel: 2
 	},
 	{
 		title: "Nginx Config",
@@ -49,7 +49,7 @@ export const leakUrls = [
 		critLevel: 3
 	},
 	{
-		title: "Dev Port",
+		title: "Info: Dev Port",
 		ports: [
 			"8080",
 			"8081",

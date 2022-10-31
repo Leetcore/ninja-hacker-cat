@@ -1,5 +1,5 @@
 import { detection } from "./detection.js"
-import { request, countRequests } from "./helper.js"
+import { request } from "./helper.js"
 
 // this engine will make requests based on the current url
 export async function engine(rules, detectedTags, url) {

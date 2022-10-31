@@ -14,9 +14,8 @@ export const fuzzing = [
             "password",
             "pass"
         ],
-        isRedirected: true,
-        detectStatusCodes: ["200"],
-        cat: "cat-angry",
+        detectResponses: ["auth", "logout"],
+        cat: "cat-panic",
         critLevel: 3
     },
     {
