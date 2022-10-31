@@ -18,15 +18,15 @@ document.querySelector("#autoRequest")
 		if (check_automatically.checked) {
 			browser.browserAction.setIcon({
 				path: {
-					16: "/images/cat-default.svg",
-					32: "/images/cat-default.svg"
+					16: "/images/cat-default.png",
+					32: "/images/cat-default.png"
 				}
 			})
 		} else {
 			browser.browserAction.setIcon({
 				path: {
-					16: "/images/cat-default-grey.svg",
-					32: "/images/cat-default-grey.svg"
+					16: "/images/cat-default-grey.png",
+					32: "/images/cat-default-grey.png"
 				}
 			})
 		}
@@ -106,7 +106,7 @@ browser.webRequest.onBeforeRequest.addListener(
 		console.log(globalRequests[request.requestId])
 	},
 	{ urls: ["<all_urls>"] },
-	["blocking", "requestBody"]
+	["requestBody"]
 )
 
 browser.webRequest.onBeforeSendHeaders.addListener(
