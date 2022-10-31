@@ -64,33 +64,44 @@ export async function engine(rules, detectedTags, url) {
 				detection(request_url, rule, result.response, result.body, rootPath)
 			}
 		} else if (rule.params) {
+			let split_url = url.split("?")
+			if (split_url.length == 0) {
+				console.warn("Url has no ? sign.")
+				continue
+			}
+
 			for (let rule_param of rule.params) {
-				let split_url = url.split("?")
-				let url_params = new URLSearchParams(split_url[1]);
-				for (let key of url_params.keys()) {
+				let urlParams = new URLSearchParams(split_url[1])
+				let paramCount = Array.from(urlParams).length
+
+				// iterate the params and change the param at the index
+				for (let index = 0; index < paramCount; index++) {
+					let key = Array.from(urlParams)[index][0]
+					urlParams = new URLSearchParams(split_url[1])
+
 					if (rule.replaceParamValue) {
-						url_params.set(key, rule_param)
+						urlParams.set(key, rule_param)
 					} else {
-						let current_param = url_params.get(key)
-						url_params.set(key, current_param + rule_param)
+						let current_param = urlParams.get(key)
+						urlParams.set(key, current_param + rule_param)
 					}
+
+					let request_url = split_url[0] + "?" + urlParams.toString()
+					if (window.nhc_alreadyVisited(request_url)) {
+						continue
+					}
+
+					// run request
+					let result = await request(
+						request_url,
+						rule.headers,
+						rule.method,
+						rule.postBody,
+						rule.postJSON
+					)
+
+					detection(request_url, rule, result.response, result.body, rule_param)
 				}
-
-				let request_url = split_url[0] + "?" + url_params.toString()
-				if (window.nhc_alreadyVisited(request_url)) {
-					continue
-				}
-
-				// run request
-				let result = await request(
-					request_url,
-					rule.headers,
-					rule.method,
-					rule.postBody,
-					rule.postJSON
-				)
-
-				detection(request_url, rule, result.response, result.body, rule_param)
 			}
 		} else if (rule.ports) {
 			let url_parsed = new URL(url)
