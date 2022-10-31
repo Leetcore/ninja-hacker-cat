@@ -4,7 +4,8 @@ import { countRequests } from "./helper.js"
 // this fuzzing engine is based on captured webrequests
 export async function fuzzing_engine(rules, requestDetails) {
 	for (let rule of rules) {
-		// filter post params
+		// there is a filter param set
+		// skip rules for this params
 		if (rule.filterPostParams) {
 			let filterThisParam = true
 			for (let filterPostParam of (rule.filterPostParams || [])) {
@@ -29,6 +30,7 @@ export async function fuzzing_engine(rules, requestDetails) {
 				continue
 			}
 
+			// iterate the params and change the param at the index
 			for (let index = 0; index < paramCount; index++) {
 				let usedParam = ""
 				let copyFormData = {}
