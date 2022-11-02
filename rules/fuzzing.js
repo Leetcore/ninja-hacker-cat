@@ -8,13 +8,16 @@ export const fuzzing = [
             "' or 'a'='a'-- "
         ],
         filterPostParams: [
+            "id",
+            "guid",
             "username",
             "user",
             "login",
             "password",
             "pass"
         ],
-        detectResponses: ["auth", "logout"],
+        filterStatusCodes: ["302", "200", "500"],
+        detectResponses: ["auth", "logout", "sql", "error"],
         cat: "cat-panic",
         critLevel: 3
     },

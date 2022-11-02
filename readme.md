@@ -45,15 +45,16 @@ Keywords.
 current WebRequest. -> XSS, SQLi.
 
 ## TODO
-* [ ] Refactoring fuzzing (only change one param per request)!
 * [ ] Add headers and postJSON for poc.js
 * [ ] Add response size check to rules
 * [ ] Change exchange proxyshell detection to passive mode
 * [ ] Add website detection for big-ip, citrix, cisco, pulse
-* [ ] Add fuzzing for get params
 * [ ] Add fuzzing param filter
+* [X] Add request limit (timer)
+* [X] Add fuzzing for get params
+* [X] Refactoring fuzzing (only change one param per request)!
 * [X] Wrapper for fetch requests to count
-* [X] Test fuzzing form data!
+* [X] Test fuzzing form data
 * [X] Add securityinfo.txt
 * [X] Version detection
 * [X] Check for leaky urls in current tab
@@ -89,6 +90,7 @@ zip -r Ninja-Hacker-Cat.zip . -x ".*" -x "images/.*"
 
 # Release notes
 Version: 1.3
+* Fixed fuzzing engine for post params
 * Cat images changed to a lovely kitty
 * Untested PoCs added 
 

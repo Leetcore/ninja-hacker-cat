@@ -34,6 +34,7 @@ document.querySelector("#autoRequest")
 
 // global stuff
 window.nhc_requestCounter = 0
+window.nhc_requestGapTimer = 3 * 1000
 window.nhc_currentCritLevel = 0
 window.nhc_visitedURLs = []
 window.nhc_alreadyVisited = function (url) {

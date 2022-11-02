@@ -1,3 +1,7 @@
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export function countRequests() {
     window.nhc_requestCounter += 1
     document.querySelector("#stats").textContent = window.nhc_requestCounter + " Requests"
@@ -16,7 +20,7 @@ export async function request(request_url, headers = null, method = "GET", data 
     // mark all automatic requests with "ninja hacker cat"
     options.headers["X-Requested-With"] = "Ninja Hacker Cat"
     options.headers["Cache"] = "no-cache"
-    
+
     // send body data
     if (data) {
         options.data = data
@@ -25,8 +29,9 @@ export async function request(request_url, headers = null, method = "GET", data 
         options.headers["Content-Type"] = "application/json"
         options.data = JSON.stringify(json)
     }
-    
+
     // run request
+    await delay(window.nhc_requestGapTimer)
     let response = await fetch(request_url, options)
     let body = await response.text()
     countRequests()
@@ -36,3 +41,4 @@ export async function request(request_url, headers = null, method = "GET", data 
         body: body
     }
 }
+
