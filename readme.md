@@ -90,6 +90,8 @@ zip -r Ninja-Hacker-Cat.zip . -x ".*" -x "images/.*"
 
 # Release notes
 Version: 1.3
+* Subdomain detection added
+* Browser notification added
 * Fixed fuzzing engine for post params
 * Cat images changed to a lovely kitty
 * Untested PoCs added 

@@ -7,7 +7,7 @@ export function countRequests() {
     document.querySelector("#stats").textContent = window.nhc_requestCounter + " Requests"
 }
 
-export async function request(request_url, headers = null, method = "GET", data = null, json = null) {
+export async function request(request_url, headers = null, method = "GET", data = null, json = null, requestOptions = []) {
     let options = {}
     options.method = method
 
@@ -31,7 +31,10 @@ export async function request(request_url, headers = null, method = "GET", data 
     }
 
     // run request
-    await delay(window.nhc_requestGapTimer)
+    if (!requestOptions.includes("nowait")) {
+        await delay(window.nhc_requestGapTimer)    
+    }
+    
     let response = await fetch(request_url, options)
     let body = await response.text()
     countRequests()

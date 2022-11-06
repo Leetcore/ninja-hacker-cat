@@ -3,6 +3,7 @@ import { countRequests } from "./helper.js"
 
 // this fuzzing engine is based on captured webrequests
 export async function fuzzing_engine(rules, requestDetails) {
+	console.log("Start detection POST fuzzing")
 	for (let rule of rules) {
 		// there is a filter param set
 		// skip rules for this params
@@ -79,6 +80,23 @@ export async function fuzzing_engine(rules, requestDetails) {
 	}
 
 	for (let rule of rules) {
+		// there is a filter param set
+		// skip rules for this params
+		if (rule.filterPostParams) {
+			let filterThisParam = true
+			for (let filterPostParam of (rule.filterPostParams || [])) {
+				if (requestDetails.requestBody
+					&& requestDetails.requestBodyJSON
+					&& requestDetails.requestBodyJSON[filterPostParam]) {
+					filterThisParam = false
+					break
+				}
+			}
+			if (filterThisParam) {
+				continue
+			}
+		}
+		
 		for (let param of rule.postParams) {
 			let postJSON = requestDetails.requestBodyJSON
 			if (!postJSON) {

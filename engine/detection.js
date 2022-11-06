@@ -139,6 +139,10 @@ export function detection(request_url, rule, response, body = "", detectedBy = "
 			return;
 		}
 
+		if (rule.skipRedirected && response.redirected) {
+			return;
+		}
+
 		// detection based only on response status code
 		for (let status of rule.detectStatusCodes) {
 			if (status_matched == status) {
