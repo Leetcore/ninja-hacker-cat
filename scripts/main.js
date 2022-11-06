@@ -73,13 +73,15 @@ function main(requestDetails) {
 					let detectedTags = await tags(current_request_url)
 
 					// run simple checks based on url
-					engine(leakUrls, detectedTags, current_request_url)
 					engine(web, detectedTags, current_request_url)
 					engine(poc, detectedTags, current_request_url)
 					engine(versions, detectedTags, current_request_url)
 
 					// run fuzzing based on current captured request
 					fuzzing_engine(fuzzing, requestDetails)
+
+					// run simple checks based on url
+					engine(leakUrls, detectedTags, current_request_url)
 				}
 			}
 		})
@@ -91,18 +93,21 @@ const globalRequests = []
 browser.webRequest.onBeforeRequest.addListener(
 	request => {
 		globalRequests[request.requestId] = request
-		if (request.requestBody.raw) {
+		// save body of response
+		if (request?.requestBody?.raw) {
 			globalRequests[request.requestId].requestBodyString = decodeURIComponent(
 				String.fromCharCode.apply(null,
 					new Uint8Array(request.requestBody.raw[0].bytes))
 			)
 		}
-		try {
-			globalRequests[request.requestId].requestBodyJSON = JSON.parse(
-				globalRequests[request.requestId].requestBodyString
-			)
-		} catch {
-			// ignore
+		if (globalRequests[request.requestId].requestBodyString) {
+			try {
+				globalRequests[request.requestId].requestBodyJSON = JSON.parse(
+					globalRequests[request.requestId].requestBodyString
+				)
+			} catch {
+				console.warn("JSON parser failed: ", request.url)
+			}
 		}
 		console.log(globalRequests[request.requestId])
 	},
