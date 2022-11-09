@@ -104,7 +104,8 @@ Version: 1.2
 # Copyright
 Source Code is under Mozilla Public License 2.0
 
-All rights reserved for the plugin name, artworks, logo and images (all cat images)!
+All rights reserved for the plugin name, artworks, logo and images
+(all cat images)!
 
 Copyright 1337core, 2022
 

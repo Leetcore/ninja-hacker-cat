@@ -5,7 +5,7 @@ export const leakUrls = [
 			"/.git/",
 			"/.git/config"
 		],
-		detectResponses: ["git"], // check this response in body
+		detectResponses: ["remote"], // check this response in body
 		filterStatusCodes: ["200"], // only check other detect values if response code matches
 		detectStatusCodes: ["200"], // alert is based on response code
 		tags: ["root"], // only run this rule if these tags where detected on the website
@@ -42,7 +42,7 @@ export const leakUrls = [
 			"/wp-config.php.backup",
 			"/wp-config.bak"
 		],
-		detectResponses: ["db"],
+		detectResponses: ["DB_PASSWORD"],
 		filterStatusCodes: ["200"],
 		tags: ["wordpress", "wp"],
 		cat: "cat-laugh",
