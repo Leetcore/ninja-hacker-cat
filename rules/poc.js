@@ -6,7 +6,7 @@ export const poc = [{
     ],
     detectResponses: ["Connectivity Endpoint"],
     tags: ["exchange"],
-    cat: "skull",
+    cat: "cat-panic",
     critLevel: 3
 },
 {
@@ -18,7 +18,7 @@ export const poc = [{
     detectResponses: ["root"],
     detectStatusCodes: ["200"],
     tags: ["pulse"],
-    cat: "cat-angry",
+    cat: "cat-panic",
     critLevel: 2
 },
 {
@@ -29,7 +29,7 @@ export const poc = [{
     ],
     detectHeaders: ["x-cmd-response"],
     tags: ["confluence"],
-    cat: "skull",
+    cat: "cat-panic",
     critLevel: 3
 }, {
     // UNTESTED!!!
@@ -39,7 +39,7 @@ export const poc = [{
     ],
     detectStatusCodes: ["200"],
     tags: ["apache"],
-    cat: "skull",
+    cat: "cat-panic",
     critLevel: 3
 }, {
     // UNTESTED!!!
@@ -49,7 +49,7 @@ export const poc = [{
     ],
     detectStatusCodes: ["200"],
     tags: ["cisco"],
-    cat: "skull",
+    cat: "cat-panic",
     critLevel: 3
 }, {
     // UNTESTED!!!

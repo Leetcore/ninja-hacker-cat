@@ -57,7 +57,6 @@ class Message {
 				{
 					type: 'basic',
 					title: 'Miau!',
-					iconUrl: browser.extension.getURL(`images/${this.avatar}.svg`),
 					message: `${this.title} (${this.detectedBy})`,
 				}
 			)
@@ -88,6 +87,7 @@ export function detection(request_url, rule, response, body = "", detectedBy = "
 					rule.cat,
 					rule.critLevel
 				)
+				break
 			}
 		}
 
@@ -128,6 +128,7 @@ export function detection(request_url, rule, response, body = "", detectedBy = "
 					rule.cat,
 					rule.critLevel
 				)
+				break
 			}
 		}
 	}
@@ -135,6 +136,10 @@ export function detection(request_url, rule, response, body = "", detectedBy = "
 	if (status_matched && !status_filtered) {
 		// check if redirect is a must have
 		if (rule.isRedirected && !response.redirected) {
+			return;
+		}
+
+		if (rule.skipRedirected && response.redirected) {
 			return;
 		}
 
@@ -149,6 +154,7 @@ export function detection(request_url, rule, response, body = "", detectedBy = "
 					rule.cat,
 					rule.critLevel
 				)
+				break
 			}
 		}
 	}

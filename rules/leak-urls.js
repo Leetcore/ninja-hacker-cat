@@ -5,7 +5,7 @@ export const leakUrls = [
 			"/.git/",
 			"/.git/config"
 		],
-		detectResponses: ["git"], // check this response in body
+		detectResponses: ["remote"], // check this response in body
 		filterStatusCodes: ["200"], // only check other detect values if response code matches
 		detectStatusCodes: ["200"], // alert is based on response code
 		tags: ["root"], // only run this rule if these tags where detected on the website
@@ -21,7 +21,7 @@ export const leakUrls = [
 		filterStatusCodes: ["200"],
 		tags: ["root"],
 		cat: "cat-laugh",
-		critLevel: 1
+		critLevel: 2
 	},
 	{
 		title: "Nginx Config",
@@ -42,14 +42,77 @@ export const leakUrls = [
 			"/wp-config.php.backup",
 			"/wp-config.bak"
 		],
-		detectResponses: ["db"],
+		detectResponses: ["DB_PASSWORD"],
 		filterStatusCodes: ["200"],
 		tags: ["wordpress", "wp"],
 		cat: "cat-laugh",
 		critLevel: 3
 	},
 	{
-		title: "Dev Port",
+		title: "Info: Subdomain",
+		subdomains: [
+			"mail",
+			"imap",
+			"smtp",
+			"weblogic",
+			"api",
+			"exchange",
+			"owa",
+			"backend",
+			"backup",
+			"build",
+			"bitbucket",
+			"citrix",
+			"chat",
+			"talk",
+			"community",
+			"console",
+			"terminal",
+			"confluence",
+			"conf",
+			"data",
+			"database",
+			"sql",
+			"mysql",
+			"demo",
+			"dev",
+			"development",
+			"downloads",
+			"download",
+			"drupal",
+			"files",
+			"file",
+			"firewall",
+			"ftp",
+			"home",
+			"jobs",
+			"mobile",
+			"auth",
+			"wordpress",
+			"blog",
+			"weblog",
+			"webmail",
+			"server",
+			"admin",
+			"git",
+			"login",
+			"logs",
+			"registry",
+			"internal",
+			"intern",
+			"config",
+			"vpn",
+			"vnc",
+			"scanme"
+		],
+		skipRedirected: true,
+		detectStatusCodes: ["200"],
+		tags: ["all"],
+		cat: "cat-default",
+		critLevel: 0
+	},
+	{
+		title: "Info: Dev Port",
 		ports: [
 			"8080",
 			"8081",
@@ -60,7 +123,7 @@ export const leakUrls = [
 			"4000",
 			"4443",
 			"5000",
-			"5001", 
+			"5001",
 			"8443"
 		],
 		detectStatusCodes: ["200"],

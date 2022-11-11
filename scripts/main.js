@@ -18,15 +18,15 @@ document.querySelector("#autoRequest")
 		if (check_automatically.checked) {
 			browser.browserAction.setIcon({
 				path: {
-					16: "/images/cat-default.svg",
-					32: "/images/cat-default.svg"
+					16: "/images/cat-default.png",
+					32: "/images/cat-default.png"
 				}
 			})
 		} else {
 			browser.browserAction.setIcon({
 				path: {
-					16: "/images/cat-default-grey.svg",
-					32: "/images/cat-default-grey.svg"
+					16: "/images/cat-default-grey.png",
+					32: "/images/cat-default-grey.png"
 				}
 			})
 		}
@@ -34,6 +34,7 @@ document.querySelector("#autoRequest")
 
 // global stuff
 window.nhc_requestCounter = 0
+window.nhc_requestGapTimer = 3 * 1000
 window.nhc_currentCritLevel = 0
 window.nhc_visitedURLs = []
 window.nhc_alreadyVisited = function (url) {
@@ -72,13 +73,15 @@ function main(requestDetails) {
 					let detectedTags = await tags(current_request_url)
 
 					// run simple checks based on url
-					engine(leakUrls, detectedTags, current_request_url)
 					engine(web, detectedTags, current_request_url)
 					engine(poc, detectedTags, current_request_url)
 					engine(versions, detectedTags, current_request_url)
 
 					// run fuzzing based on current captured request
 					fuzzing_engine(fuzzing, requestDetails)
+
+					// run simple checks based on url
+					engine(leakUrls, detectedTags, current_request_url)
 				}
 			}
 		})
@@ -90,23 +93,26 @@ const globalRequests = []
 browser.webRequest.onBeforeRequest.addListener(
 	request => {
 		globalRequests[request.requestId] = request
-		if (request.requestBody.raw) {
+		// save body of response
+		if (request?.requestBody?.raw) {
 			globalRequests[request.requestId].requestBodyString = decodeURIComponent(
 				String.fromCharCode.apply(null,
 					new Uint8Array(request.requestBody.raw[0].bytes))
 			)
 		}
-		try {
-			globalRequests[request.requestId].requestBodyJSON = JSON.parse(
-				globalRequests[request.requestId].requestBodyString
-			)
-		} catch {
-			// ignore
+		if (globalRequests[request.requestId].requestBodyString) {
+			try {
+				globalRequests[request.requestId].requestBodyJSON = JSON.parse(
+					globalRequests[request.requestId].requestBodyString
+				)
+			} catch {
+				console.warn("JSON parser failed: ", request.url)
+			}
 		}
 		console.log(globalRequests[request.requestId])
 	},
 	{ urls: ["<all_urls>"] },
-	["blocking", "requestBody"]
+	["requestBody"]
 )
 
 browser.webRequest.onBeforeSendHeaders.addListener(

@@ -5,7 +5,9 @@ your websites!
 
 ## Installation
 Install the extension in firefox:
-<a href="https://addons.mozilla.org/de/firefox/addon/ninja-hacker-cat/">Firefox Add-Ons</a>
+<a href="https://addons.mozilla.org/de/firefox/addon/ninja-hacker-cat/">
+    Firefox Add-Ons
+</a>
 
 Temporary installation:
 * Settings
@@ -43,12 +45,16 @@ Keywords.
 current WebRequest. -> XSS, SQLi.
 
 ## TODO
-* [ ] Refactoring fuzzing (only change one param per request)!
+* [ ] Add headers and postJSON for poc.js
 * [ ] Add response size check to rules
-* [ ] Add fuzzing for get params
+* [ ] Change exchange proxyshell detection to passive mode
+* [ ] Add website detection for big-ip, citrix, cisco, pulse
 * [ ] Add fuzzing param filter
+* [X] Add request limit (timer)
+* [X] Add fuzzing for get params
+* [X] Refactoring fuzzing (only change one param per request)!
 * [X] Wrapper for fetch requests to count
-* [X] Test fuzzing form data!
+* [X] Test fuzzing form data
 * [X] Add securityinfo.txt
 * [X] Version detection
 * [X] Check for leaky urls in current tab
@@ -83,13 +89,23 @@ zip -r Ninja-Hacker-Cat.zip . -x ".*" -x "images/.*"
 ```
 
 # Release notes
+Version: 1.3
+* Subdomain detection added
+* Browser notification added
+* Fixed fuzzing engine for post params
+* Cat images changed to a lovely kitty
+* Untested PoCs added 
+
 Version: 1.2
 * License changed to Mozilla Public License 2.0 because its not allowed to use logo / visuals
 * Fixing the root urls if a port is specified -> Tested RCE: Weblogic Console (CVE-2020-14882)
 * Changing the interface from panel in background to icon and full background page
 
 # Copyright
-Mozilla Public License 2.0
+Source Code is under Mozilla Public License 2.0
+
+All rights reserved for the plugin name, artworks, logo and images
+(all cat images)!
 
 Copyright 1337core, 2022
 

@@ -7,8 +7,8 @@ export const web = [{
         "\"'><img src='1337core' onError='alert(1)'/>"
     ],
     tags: ["get-param"],
-    cat: "cat-angry",
-    critLevel: 1
+    cat: "cat-love",
+    critLevel: 2
 },
 {
     title: "SQLI: SQL Injection",

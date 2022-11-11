@@ -1,15 +1,15 @@
-export async function tags(request_url) {
-	if (window.nhc_alreadyVisited(request_url)) {
+export async function tags(requestUrl) {
+	if (window.nhc_alreadyVisited(requestUrl)) {
 		return [];
 	}
-	let parsed_url = new URL(request_url)
-	let rootUrl = parsed_url.protocol + "//" + parsed_url.hostname
-	if (request_url.includes(":")) {
-		rootUrl = parsed_url.protocol + "//" + parsed_url.hostname + ":" + parsed_url.port
+	let parsedUrl = new URL(requestUrl)
+	let rootUrl = parsedUrl.protocol + "//" + parsedUrl.hostname
+	if (parsedUrl.port.length > 0) {
+		rootUrl = parsedUrl.protocol + "//" + parsedUrl.hostname + ":" + parsedUrl.port
 	}
 
 	let allDetectedTags = []
-	let response = await fetch(request_url)
+	let response = await fetch(requestUrl)
 	let body = await response.text()
 	body = body.toLocaleLowerCase()
 
@@ -19,12 +19,12 @@ export async function tags(request_url) {
 	}
 
 	// detect exchange owa page
-	if (request_url.includes("/owa/")) {
+	if (requestUrl.includes("/owa/")) {
 		allDetectedTags.push("exchange")
 	}
 
 	// detect GET param in URL
-	if (request_url.includes("?")) {
+	if (requestUrl.includes("?")) {
 		allDetectedTags.push("get-param")
 	}
 
@@ -35,8 +35,8 @@ export async function tags(request_url) {
 	}
 
 	// root path with no get params
-	if (!request_url.includes("?")
-		&& request_url.replace(rootUrl, "").length <= 4) {
+	if (!requestUrl.includes("?")
+		&& requestUrl.replace(rootUrl, "").length <= 4) {
 		allDetectedTags.push("root")
 	}
 

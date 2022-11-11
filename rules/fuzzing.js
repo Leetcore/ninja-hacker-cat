@@ -8,15 +8,17 @@ export const fuzzing = [
             "' or 'a'='a'-- "
         ],
         filterPostParams: [
+            "id",
+            "guid",
             "username",
             "user",
             "login",
             "password",
             "pass"
         ],
-        isRedirected: true,
-        detectStatusCodes: ["200"],
-        cat: "cat-angry",
+        filterStatusCodes: ["302", "200", "500"],
+        detectResponses: ["auth", "logout", "sql", "error"],
+        cat: "cat-panic",
         critLevel: 3
     },
     {
