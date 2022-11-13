@@ -19,7 +19,7 @@ class Message {
 		messageBox.insertAdjacentHTML(position, `
 		<div class="message">
 			<span class="title" id="this_title"></span><br/>
-			<a id="this_url"></a>
+			<a id="this_url" target="_blank"></a>
 			<span class="size">Size: <span id="this_size"></span></span><br/>
 			<span class="detect">
 				Detected by: <span class="method" id="this_detectedBy"></span>

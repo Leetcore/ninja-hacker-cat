@@ -56,10 +56,31 @@ export async function tags(requestUrl) {
 		allDetectedTags.push("apache")
 	}
 
+	// detect nginx by server header
+	if (response.headers.get("Server")
+		&& response.headers.get("Server").includes("nginx")) {
+		allDetectedTags.push("nginx")
+	}
+
 	// detect weblogic application
 	if (response.url.indexOf("/console/login/") >= 0
 		&& body.includes("weblogic")) {
 		allDetectedTags.push("weblogic")
+	}
+
+	// detect roundcube by title tag
+	if (body.includes("<title>Roundcube Webmail".toLowerCase())) {
+		allDetectedTags.push("roundcube")
+	}
+
+	// detect joomla by meta generator info
+	if (body.includes('<meta name="generator" content="Joomla'.toLowerCase())) {
+		allDetectedTags.push("joomla")
+	}
+
+	// detect drupal by meta generator info
+	if (body.includes('<meta name="generator" content="Drupal"'.toLowerCase())) {
+		allDetectedTags.push("drupal")
 	}
 
 	console.log("detected tags: " + allDetectedTags)

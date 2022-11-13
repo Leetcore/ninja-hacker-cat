@@ -48,7 +48,6 @@ export async function engine(rules, detectedTags, url) {
 		} else if (rule.rootPaths) {
 			console.log("Start detection based on root url")
 			for (let rootPath of rule.rootPaths) {
-				console.log("!!!")
 				let requestUrl = rootUrl + rootPath
 				console.log(requestUrl)
 
