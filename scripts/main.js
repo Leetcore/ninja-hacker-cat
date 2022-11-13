@@ -16,6 +16,8 @@ document.querySelector("#autoRequest")
 	.addEventListener("click", () => {
 		console.log(check_automatically)
 		if (check_automatically.checked) {
+			// Info: title is used to check if this tab is open
+			document.title = "✔ Active Ninja Hacker Cat"
 			browser.browserAction.setIcon({
 				path: {
 					16: "/images/cat-default.png",
@@ -23,6 +25,8 @@ document.querySelector("#autoRequest")
 				}
 			})
 		} else {
+			// Info: title is used to check if this tab is open
+			document.title = "💤 Sleeping Ninja Hacker Cat"
 			browser.browserAction.setIcon({
 				path: {
 					16: "/images/cat-default-grey.png",
