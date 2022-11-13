@@ -89,6 +89,10 @@ zip -r Ninja-Hacker-Cat.zip . -x ".*" -x "images/.*"
 ```
 
 # Release notes
+Version: 1.4
+* Improve visuals of script kitty activity
+* Leaks added: SQL backup, git credentials, backup files, etc
+
 Version: 1.3
 * Subdomain detection added
 * Browser notification added
