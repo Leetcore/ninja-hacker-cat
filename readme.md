@@ -89,6 +89,10 @@ zip -r Ninja-Hacker-Cat.zip . -x ".*" -x "images/.*"
 ```
 
 # Release notes
+Version: 1.5
+* Improved detection of SQL injection
+* Improved global request timer
+
 Version: 1.4
 * Improve visuals of script kitty activity
 * Leaks added: SQL backup, git credentials, backup files, etc

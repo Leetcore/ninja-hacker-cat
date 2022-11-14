@@ -165,6 +165,7 @@ document.querySelector('#reset').addEventListener('click', () => {
 	})
 	document.querySelector('#cat-default').style.display = 'block'
 	window.nhc_currentCritLevel = 0
+	window.nhc_requestCounter = 0
 	window.nhc_visitedURLs = []
 	document.querySelector('#messageBox').innerHTML = ''
 	document.querySelector('#reset').classList.add('hidden')
