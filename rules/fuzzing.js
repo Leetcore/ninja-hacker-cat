@@ -17,7 +17,7 @@ export const fuzzing = [
             "pass"
         ],
         filterStatusCodes: ["302", "200", "500"],
-        detectResponses: ["auth", "logout", "sql", "error"],
+        detectResponses: ["auth", "logout", "syntax error"],
         cat: "cat-panic",
         critLevel: 3
     },

@@ -131,13 +131,12 @@ export const leakUrls = [
 			"/config.php.bak",
 			"/db.php.bak",
 			"/database.php.bak",
-			"/wp-config.php.bak"
 		],
 		detectResponses: [
 			"<?php"
 		],
 		filterStatusCodes: ["200"],
-		tags: ["all"],
+		tags: ["apache"],
 		cat: "cat-laugh",
 		critLevel: 2
 	},

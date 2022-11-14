@@ -11,18 +11,6 @@ export const web = [{
     critLevel: 2
 },
 {
-    title: "SQLI: SQL Injection",
-    params: [
-        "' or 'a'='a"
-    ],
-    detectResponses: [
-        "\"'><img src='1337core' onError='alert(1)'/>"
-    ],
-    tags: ["get-param"],
-    cat: "cat-love",
-    critLevel: 3
-},
-{
     title: "SQLI: SQL Injection Error Page",
     params: [
         "'",

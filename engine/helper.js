@@ -32,7 +32,10 @@ export async function request(request_url, headers = null, method = "GET", data 
 
     // run request
     if (!requestOptions.includes("nowait")) {
-        await delay(window.nhc_requestGapTimer)    
+        // this sets a global timegap for parallel requests
+        window.nhc_requestGapTimer += 2 * 1000
+        await delay(window.nhc_requestGapTimer)
+        window.nhc_requestGapTimer -= 2 * 1000
     }
     
     let response = await fetch(request_url, options)

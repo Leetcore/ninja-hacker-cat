@@ -169,6 +169,10 @@ export async function engine(rules, detectedTags, url) {
 		} else {
 			// rules based on tags
 			let requestUrl = url
+			if (window.nhc_alreadyVisited(requestUrl)) {
+				console.log("Skip request: ", requestUrl)
+				continue
+			}
 
 			// run request
 			let result = await request(
