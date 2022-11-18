@@ -77,15 +77,25 @@ function main(requestDetails) {
 					let detectedTags = await tags(current_request_url)
 
 					// run simple checks based on url
-					engine(web, detectedTags, current_request_url)
-					engine(poc, detectedTags, current_request_url)
-					engine(versions, detectedTags, current_request_url)
+					if (document.querySelector("#checkboxWeb").checked) {
+						engine(web, detectedTags, current_request_url)
+					}
+					if (document.querySelector("#checkboxCritPOC").checked) {
+						engine(poc, detectedTags, current_request_url)
+					}
+					if (document.querySelector("#checkboxVersions").checked) {
+						engine(versions, detectedTags, current_request_url)
+					}
 
 					// run fuzzing based on current captured request
-					fuzzing_engine(fuzzing, requestDetails)
+					if (document.querySelector("#checkboxFuzzing").checked) {
+						fuzzing_engine(fuzzing, requestDetails)
+					}
 
 					// run simple checks based on url
-					engine(leakUrls, detectedTags, current_request_url)
+					if (document.querySelector("#checkboxLeaks").checked) {
+						engine(leakUrls, detectedTags, current_request_url)
+					}
 				}
 			}
 		})
