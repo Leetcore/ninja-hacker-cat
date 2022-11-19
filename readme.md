@@ -90,7 +90,9 @@ zip -r Ninja-Hacker-Cat.zip . -x ".*" -x "images/.*"
 
 # Release notes
 Version: 1.6
+* Fix version detection rules
 * Configure attack rules with checkboxes
+* Faster requests (less requests with rule checkboxes)
 
 Version: 1.5
 * Improved detection of SQL injection
