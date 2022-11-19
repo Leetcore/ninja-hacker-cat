@@ -38,17 +38,8 @@ document.querySelector("#autoRequest")
 
 // global stuff
 window.nhc_requestCounter = 0
-window.nhc_requestGapTimer = 1 * 1000
+window.nhc_requestGapTimer = 100
 window.nhc_currentCritLevel = 0
-window.nhc_visitedURLs = []
-window.nhc_alreadyVisited = function (url) {
-	if (window.nhc_visitedURLs.indexOf(url) === -1) {
-		window.nhc_visitedURLs.push(url)
-		return false;
-	} else {
-		return true;
-	}
-}
 
 function main(requestDetails) {
 	// start checks or skip checks
@@ -176,7 +167,6 @@ document.querySelector('#reset').addEventListener('click', () => {
 	document.querySelector('#cat-default').style.display = 'block'
 	window.nhc_currentCritLevel = 0
 	window.nhc_requestCounter = 0
-	window.nhc_visitedURLs = []
 	document.querySelector('#messageBox').innerHTML = ''
 	document.querySelector('#reset').classList.add('hidden')
 })

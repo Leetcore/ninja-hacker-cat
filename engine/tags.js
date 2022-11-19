@@ -1,7 +1,4 @@
 export async function tags(requestUrl) {
-	if (window.nhc_alreadyVisited(requestUrl)) {
-		return [];
-	}
 	let parsedUrl = new URL(requestUrl)
 	let rootUrl = parsedUrl.protocol + "//" + parsedUrl.hostname
 	if (parsedUrl.port.length > 0) {

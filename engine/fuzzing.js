@@ -47,10 +47,6 @@ export async function fuzzing_engine(rules, requestDetails) {
 				}
 
 				// run request
-				if (window.nhc_alreadyVisited(requestDetails.url + usedParam)) {
-					continue
-				}
-
 				let sendData = new URLSearchParams()
 				for (let key in copyFormData) {
 					sendData.append(key, copyFormData[key])
@@ -117,10 +113,6 @@ export async function fuzzing_engine(rules, requestDetails) {
 				} else {
 					copyJSON[Object.keys(copyJSON)[index]] = Object.values(copyJSON)[index] + param
 					usedParam = Object.keys(copyJSON)[index] + "=" + Object.values(copyJSON)[index]
-				}
-
-				if (window.nhc_alreadyVisited(requestDetails.url + JSON.stringify(copyJSON))) {
-					continue
 				}
 
 				// TODO: use request instead
