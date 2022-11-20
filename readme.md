@@ -89,6 +89,9 @@ zip -r Ninja-Hacker-Cat.zip . -x ".*" -x "images/.*"
 ```
 
 # Release notes
+Version: 1.7
+* Fix doublicated requests and messages
+
 Version: 1.6
 * Fix version detection rules
 * Configure attack rules with checkboxes

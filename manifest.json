@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Ninja-Hacker-Cat",
 	"description": "Cute Script Kitty makes web security checks for you!",
-	"version": "1.6",
+	"version": "1.7",
 	"browser_action": {
 		"default_icon": "/images/cat-default-grey.png",
 		"default_title": "Miau!"
