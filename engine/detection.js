@@ -11,6 +11,16 @@ class Message {
 
 	render() {
 		const messageBox = document.querySelector("#messageBox");
+		// check if message is there already
+		for (let message of document.querySelectorAll(".message")) {
+			if (message.querySelector(".title")?.textContent == this.title
+				&& message.querySelector(".url")?.textContent == this.url
+				&& message.querySelector(".size_number")?.textContent == this.size
+				&& message.querySelector(".detectedBy")?.textContent == this.detectedBy) {
+				return;
+			}
+		}
+
 		// higher critlevel should be on top
 		let position = "beforeend"
 		if (this.critLevel > 1) {
@@ -19,10 +29,10 @@ class Message {
 		messageBox.insertAdjacentHTML(position, `
 		<div class="message">
 			<span class="title" id="this_title"></span><br/>
-			<a id="this_url" target="_blank"></a>
-			<span class="size">Size: <span id="this_size"></span></span><br/>
+			<a class="url" id="this_url" target="_blank"></a>
+			<span class="size">Size: <span class="size_number" id="this_size"></span></span><br/>
 			<span class="detect">
-				Detected by: <span class="method" id="this_detectedBy"></span>
+				Detected by: <span class="method detectedBy" id="this_detectedBy"></span>
 			</span>
 		</div>`)
 		document.querySelector('#this_title').textContent = this.title
