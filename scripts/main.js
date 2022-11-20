@@ -24,6 +24,9 @@ document.querySelector("#autoRequest")
 					32: "/images/cat-default.png"
 				}
 			})
+			document.querySelectorAll(".checkbox-rules").forEach(element => {
+				element.classList.remove("checkbox-deactivated")
+			})
 		} else {
 			// Info: title is used to check if this tab is open
 			document.title = "💤 Sleeping Ninja Hacker Cat"
@@ -32,6 +35,9 @@ document.querySelector("#autoRequest")
 					16: "/images/cat-default-grey.png",
 					32: "/images/cat-default-grey.png"
 				}
+			})
+			document.querySelectorAll(".checkbox-rules").forEach(element => {
+				element.classList.add("checkbox-deactivated")
 			})
 		}
 	})

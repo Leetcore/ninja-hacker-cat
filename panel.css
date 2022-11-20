@@ -53,6 +53,10 @@ input {
 	margin-left: -1px;
 }
 
+.checkbox-deactivated {
+	color: #333;
+}
+
 .small {
 	font-size: 70%;
 }
