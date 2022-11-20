@@ -30,6 +30,14 @@ export async function request(request_url, headers = null, method = "GET", data 
         options.data = JSON.stringify(json)
     }
 
+    // dont request the same res twice
+    let id = request_url + JSON.stringify(options)
+    if (window.nhc_requestedUrls.includes(id)) {
+        return false;
+    } else {
+        window.nhc_requestedUrls.push(id)
+    }
+
     // run request
     if (!requestOptions.includes("nowait")) {
         // this sets a global timegap for parallel requests
@@ -38,6 +46,8 @@ export async function request(request_url, headers = null, method = "GET", data 
         window.nhc_requestGapTimer -= 400
     }
     
+
+
     let response = await fetch(request_url, options)
     let body = await response.text()
     countRequests()

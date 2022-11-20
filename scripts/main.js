@@ -46,6 +46,7 @@ document.querySelector("#autoRequest")
 window.nhc_requestCounter = 0
 window.nhc_requestGapTimer = 100
 window.nhc_currentCritLevel = 0
+window.nhc_requestedUrls = []
 
 function main(requestDetails) {
 	// start checks or skip checks
@@ -173,6 +174,7 @@ document.querySelector('#reset').addEventListener('click', () => {
 	document.querySelector('#cat-default').style.display = 'block'
 	window.nhc_currentCritLevel = 0
 	window.nhc_requestCounter = 0
+	window.nhc_requestedUrls = []
 	document.querySelector('#messageBox').innerHTML = ''
 	document.querySelector('#reset').classList.add('hidden')
 })

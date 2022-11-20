@@ -38,7 +38,9 @@ export async function engine(rules, detectedTags, url) {
 				)
 
 				// detection based on server answer
-				detection(requestUrl, rule, result.response, result.body, path)
+				if (result) {
+					detection(requestUrl, rule, result.response, result.body, path)
+				}
 			}
 		} else if (rule.rootPaths) {
 			console.log("Start detection based on root url")
@@ -56,7 +58,9 @@ export async function engine(rules, detectedTags, url) {
 				)
 
 				// detection based on server answer
-				detection(requestUrl, rule, result.response, result.body, rootPath)
+				if (result) {
+					detection(requestUrl, rule, result.response, result.body, rootPath)
+				}
 			}
 		} else if (rule.params) {
 			console.log("Start detection of GET parameters")
@@ -92,8 +96,9 @@ export async function engine(rules, detectedTags, url) {
 						rule.postBody,
 						rule.postJSON
 					)
-
-					detection(requestUrl, rule, result.response, result.body, rule_param)
+					if (result) {
+						detection(requestUrl, rule, result.response, result.body, rule_param)
+					}
 				}
 			}
 		} else if (rule.ports) {
@@ -117,7 +122,9 @@ export async function engine(rules, detectedTags, url) {
 						["nowait"]
 					)
 
-					detection(requestUrl, rule, result.response, "", port)
+					if (result) {
+						detection(requestUrl, rule, result.response, "", port)
+					}
 				} catch (e) {
 					console.warn(e)
 				}
@@ -139,7 +146,9 @@ export async function engine(rules, detectedTags, url) {
 						["nowait"]
 					)
 
-					detection(requestUrl, rule, result.response, "", subdomain)
+					if (result) {
+						detection(requestUrl, rule, result.response, "", subdomain)
+					}
 				} catch (e) {
 					console.warn(e)
 				}
@@ -156,8 +165,9 @@ export async function engine(rules, detectedTags, url) {
 				rule.postBody,
 				rule.postJSON
 			)
-
-			detection(requestUrl, rule, result.response, result.body, rule.detectedBy)
+			if (result) {
+				detection(requestUrl, rule, result.response, result.body, rule.detectedBy)
+			}
 		}
 	}
 }
